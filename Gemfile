@@ -52,11 +52,10 @@ gem "bootsnap", require: false
 
 gem 'sorcery'
 
-gem "pry-rails"
-
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "pry-rails"
 end
 
 group :development do
@@ -81,3 +80,7 @@ group :test do
   # gem "selenium-webdriver"
 
 end
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "redis", "~> 5.0"
