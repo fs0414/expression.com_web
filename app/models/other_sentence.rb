@@ -1,0 +1,2 @@
+class OtherSentence < ApplicationRecord
+end

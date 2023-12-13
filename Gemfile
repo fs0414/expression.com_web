@@ -84,3 +84,5 @@ end
 gem "dockerfile-rails", ">= 1.5", :group => :development
 
 gem "redis", "~> 5.0"
+
+gem "tailwindcss-rails", "~> 2.0"
