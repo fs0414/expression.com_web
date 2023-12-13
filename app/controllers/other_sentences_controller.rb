@@ -1,0 +1,2 @@
+class OtherSentencesController < ApplicationController
+end
