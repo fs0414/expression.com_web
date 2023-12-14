@@ -4,7 +4,7 @@
       <% if current_user && current_user.id == other_sentence.user_id %>
         <button onclick="showDeleteModal('<%= dom_id(other_sentence, :delete_modal) %>')" class="text-left w-full">
             <%= "・" + other_sentence.content %>
-            <p class="text-gray-400 text-xs pl-4">current</p>
+            <p class="text-gray-400 text-xs pl-4">my</p>
         </button>
       <% else %>
         <p><%= "・" + other_sentence.content %></p>
