@@ -2,7 +2,13 @@ class SentencesController < ApplicationController
   skip_before_action :require_login, only: [:index]
 
   def index
-    @sentences = Sentence.all
+    if params[:search].present?
+      @sentences = Sentence.where('content LIKE ?', "%#{params[:search]}%")
+    else
+      @sentences = Sentence.all
+    end
+
+
   end
 
   def new
@@ -13,10 +19,17 @@ class SentencesController < ApplicationController
     @sentence = current_user.sentences.new(sentence_params)
 
     if @sentence.save
-      redirect_to root_path, notice: 'Sentence was successfully created.'
+      redirect_to root_path, notice: '文章を投稿しました'
     else
+      flash[:alert] = '投稿に失敗しました'
       render :new
     end
+  end
+
+  def destroy
+    @sentence = Sentence.find(params[:id])
+    @sentence.destroy
+    redirect_to root_path, notice: '文章を削除しました'
   end
 
   private

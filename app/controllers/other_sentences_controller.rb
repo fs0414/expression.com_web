@@ -9,8 +9,9 @@ class OtherSentencesController < ApplicationController
     @other_sentence[:user_id] = current_user.id
 
     if @other_sentence.save
-      redirect_to sentences_path, notice: 'Other sentence was successfully created.'
+      redirect_to root_path, notice: 'あなたの表現を投稿しました'
     else
+      flash[:alert] = '投稿に失敗しました'
       render :new
     end
   end
@@ -18,7 +19,7 @@ class OtherSentencesController < ApplicationController
   def destroy
     @other_sentence = @sentence.other_sentences.find(params[:id])
     @other_sentence.destroy
-    redirect_to sentences_path, notice: 'Other sentence was successfully deleted.'
+    redirect_to sentences_path, notice: 'あなたの表現を削除しました'
   end
 
   private

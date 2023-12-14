@@ -4,7 +4,7 @@
     <div>
       <% if current_user %>
         <span class="cursor-pointer" onclick="showLogoutModal()">
-          <%= current_user.nikname %>（ログアウト）
+          <%= current_user.nikname %>
         </span>
       <% else %>
         <%= link_to 'ログインする', login_path, class: "text-white hover:text-amber-200" %>

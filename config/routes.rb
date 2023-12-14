@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   root 'sentences#index'
 
   resources :sentences, only: %i[new create update destroy] do
-    resources :other_sentences, only: %i[new create update destroy]
+    resources :other_sentences, only: %i[new create destroy]
   end
 end
