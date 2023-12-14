@@ -1,0 +1,15 @@
+<% if sentence.other_sentences.any? %>
+  <div class="mt-2 pl-4 pt-2">
+   <div class="mt-2 pl-4 pt-2">
+    <h3 class="text-sm font-thin text-gray-400 flex-grow inline-block pr-3">みんなの表現</h3>
+    <%= link_to "追加", new_sentence_other_sentence_path(sentence), class: "inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-1 px-3 rounded text-sm" %>
+  </div>
+    <ul class="list-disc">
+      <% sentence.other_sentences.each do |other_sentence| %>
+        <li class="flex items-center mt-2">
+          <h4 class="flex-grow text-gray-600"><%= '・' + other_sentence.content %></h4>
+        </li>
+      <% end %>
+    </ul>
+ </div>
+<% end %>

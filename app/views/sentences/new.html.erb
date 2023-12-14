@@ -1,0 +1,14 @@
+<h1 class="text-2xl font-bold mb-4">文章を登録</h1>
+
+<%= form_with model: @sentence, local: true, class: "bg-orange-100 shadow p-4 rounded-md" do |form| %>
+  <div class="mb-4">
+    <%= form.label :content, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :content, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div class="flex items-center justify-between">
+    <%= form.submit '登録', class: "bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+  </div>
+<% end %>
+
+<%= link_to '一覧に戻る', root_path, class: "mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700" %>

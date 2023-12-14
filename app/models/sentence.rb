@@ -1,11 +1,4 @@
 class Sentence < ApplicationRecord
-  def index
-
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:nikname, :email, :password, :password_confirmation, :role)
-  end
+  belongs_to :user
+  has_many :other_sentences, dependent: :destroy
 end

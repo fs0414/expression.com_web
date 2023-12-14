@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
+  has_many :sentences, dependent: :destroy
+  has_many :other_sentences, dependent: :destroy
+
   enum :role, { user: 0, admin: 1 }
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
